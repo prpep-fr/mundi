@@ -36,6 +36,9 @@ function Window.new(title, themeName)
     })
     Utility.ApplyCorner(self.main, 4)
 
+    -- Armazena o tamanho original da janela para poder restaurá-lo depois
+    self.originalMainSize = self.main.Size
+
     self.header = createFrame({
         Name = "MainHeader",
         Parent = self.main,
@@ -58,16 +61,16 @@ function Window.new(title, themeName)
     self.title.TextSize = 16
     self.title.TextXAlignment = Enum.TextXAlignment.Left
 
-    self.closeButton = Instance.new("ImageButton")
-    self.closeButton.Name = "Close"
-    self.closeButton.Parent = self.header
-    self.closeButton.BackgroundTransparency = 1
-    self.closeButton.Position = UDim2.new(0.95, 0, 0.138, 0)
-    self.closeButton.Size = UDim2.new(0, 21, 0, 21)
-    self.closeButton.ZIndex = 2
-    self.closeButton.Image = "rbxassetid://3926305904"
-    self.closeButton.ImageRectOffset = Vector2.new(284, 4)
-    self.closeButton.ImageRectSize = Vector2.new(24, 24)
+    self.minimizeButton = Instance.new("ImageButton")
+    self.minimizeButton.Name = "Minimize"
+    self.minimizeButton.Parent = self.header
+    self.minimizeButton.BackgroundTransparency = 1
+    self.minimizeButton.Position = UDim2.new(0.95, 0, 0.138, 0)
+    self.minimizeButton.Size = UDim2.new(0, 21, 0, 21)
+    self.minimizeButton.ZIndex = 2
+    self.minimizeButton.Image = "rbxassetid://3926305904"
+    self.minimizeButton.ImageRectOffset = Vector2.new(884, 284) -- ícone de minimizar (traço)
+    self.minimizeButton.ImageRectSize = Vector2.new(36, 36)
 
     self.side = createFrame({
         Name = "MainSide",
@@ -117,14 +120,46 @@ function Window.new(title, themeName)
     self.theme:Register(self.header, "BackgroundColor3", "Header")
     self.theme:Register(self.side, "BackgroundColor3", "Header")
     self.theme:Register(self.title, "TextColor3", "TextColor")
-    self.theme:Register(self.closeButton, "ImageColor3", "TextColor")
+    self.theme:Register(self.minimizeButton, "ImageColor3", "TextColor")
 
     self.theme.Changed:Connect(function()
         self.theme:Apply()
     end)
 
-    self.closeButton.MouseButton1Click:Connect(function()
-        self.screenGui:Destroy()
+    -- Estado de minimização e ícones para cada estado
+    self.minimized = false
+    self.minimizeIcon = {
+        Offset = Vector2.new(884, 284),
+        Size = Vector2.new(36, 36),
+    }
+    self.restoreIcon = {
+        Offset = Vector2.new(324, 924),
+        Size = Vector2.new(36, 36),
+    }
+
+    self.minimizeButton.MouseButton1Click:Connect(function()
+        self.minimized = not self.minimized
+
+        if self.minimized then
+            self.side.Visible = false
+            self.pages.Visible = false
+            self.infoContainer.Visible = false
+            self.main.Size = UDim2.new(
+                self.originalMainSize.X.Scale,
+                self.originalMainSize.X.Offset,
+                0,
+                self.header.Size.Y.Offset
+            )
+            self.minimizeButton.ImageRectOffset = self.restoreIcon.Offset
+            self.minimizeButton.ImageRectSize = self.restoreIcon.Size
+        else
+            self.side.Visible = true
+            self.pages.Visible = true
+            self.infoContainer.Visible = true
+            self.main.Size = self.originalMainSize
+            self.minimizeButton.ImageRectOffset = self.minimizeIcon.Offset
+            self.minimizeButton.ImageRectSize = self.minimizeIcon.Size
+        end
     end)
 
     self.tabs = {}
