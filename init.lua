@@ -1,5 +1,5 @@
 local GithubRequire = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/GithubRequire.lua"
 ))()
 
 local Window = GithubRequire("Library/Components/Window")
