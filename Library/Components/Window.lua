@@ -167,7 +167,7 @@ function Window.new(title, themeName)
 end
 
 function Window:NewTab(tabName)
-    local Tab = GithubRequire("Library/Components/Tab")
+    local Tab = GithubRequire("/Library/Components/Tab")
     local tab = Tab.new(tabName or "Tab", self)
     table.insert(self.tabs, tab)
     return tab
