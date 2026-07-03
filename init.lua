@@ -8,7 +8,6 @@ local Library = {}
 Library.__index = Library
 
 function Library.CreateLib(title, theme)
-   Window:NewTab(title)
     return Window.new(title, theme)
 end
 
