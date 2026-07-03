@@ -19,9 +19,9 @@ end
 
 function Window.new(title, themeName)
     local self = setmetatable({}, Window)
-    self.theme = Theme.new(themeName or "DarkTheme")
+    self.theme = Theme.new(themeName)
     self.screenGui = Instance.new("ScreenGui")
-    self.screenGui.Name = title or "Library"
+    self.screenGui.Name = title
     self.screenGui.ResetOnSpawn = false
     self.screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     self.screenGui.Parent = game:GetService("CoreGui")
