@@ -2,7 +2,7 @@ local GithubRequire = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/prpep-fr/mundi/main/GithubRequire.lua"
 ))()
 
-local Window = GithubRequire("Library/Components/Window")
+local Window = GithubRequire("/Library/Components/Window")
 
 local Library = {}
 Library.__index = Library
