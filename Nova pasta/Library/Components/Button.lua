@@ -1,4 +1,8 @@
-local Utility = require(script.Parent.Parent.Core.Utility)
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+))()
+
+local Utility = GithubRequire("Library/Core/Utility")
 
 local Button = {}
 Button.__index = Button
