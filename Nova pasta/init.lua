@@ -1,6 +1,8 @@
-local Window = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/Library/Components/Window.lua"
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
 ))()
+
+local Window = GithubRequire("Library/Components/Window")
 
 local Library = {}
 Library.__index = Library
