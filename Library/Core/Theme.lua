@@ -2,7 +2,7 @@ local GithubRequire = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/prpep-fr/mundi/main/GithubRequire.lua"
 ))()
 
-local Signal = GithubRequire("Library/Core/Signal")
+local Signal = GithubRequire("/Library/Core/Signal")
 
 local Theme = {}
 Theme.__index = Theme
