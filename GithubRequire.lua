@@ -1,7 +1,7 @@
 -- GitHub Loader with Cache System
 -- Loads modules from GitHub Raw without depending on ModuleScripts
 
-local BASE_URL = "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/"
+local BASE_URL = "https://raw.githubusercontent.com/prpep-fr/mundi/main"
 local moduleCache = {}
 
 local function GithubRequire(path)
