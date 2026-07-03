@@ -1,6 +1,10 @@
-local Utility = require(script.Parent.Parent.Core.Utility)
-local Drag = require(script.Parent.Parent.Core.Drag)
-local Theme = require(script.Parent.Parent.Core.Theme)
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+))()
+
+local Utility = GithubRequire("Library/Core/Utility")
+local Drag = GithubRequire("Library/Core/Drag")
+local Theme = GithubRequire("Library/Core/Theme")
 
 local Window = {}
 Window.__index = Window
@@ -128,7 +132,7 @@ function Window.new(title, themeName)
 end
 
 function Window:NewTab(tabName)
-    local Tab = require(script.Parent.Tab)
+    local Tab = GithubRequire("Library/Components/Tab")
     local tab = Tab.new(tabName or "Tab", self)
     table.insert(self.tabs, tab)
     return tab
