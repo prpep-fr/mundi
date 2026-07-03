@@ -1,4 +1,8 @@
-local Utility = require(script.Parent.Parent.Core.Utility)
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+))()
+
+local Utility = GithubRequire("Library/Core/Utility")
 
 local Tab = {}
 Tab.__index = Tab
@@ -83,7 +87,7 @@ function Tab.new(name, window)
 end
 
 function Tab:NewSection(name)
-    local Section = require(script.Parent.Section)
+    local Section = GithubRequire("Library/Components/Section")
     local section = Section.new(name, self)
     table.insert(self.sections, section)
     return section
