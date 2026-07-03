@@ -12,5 +12,6 @@ function Library.CreateLib(title, theme)
 end
 
 local win = Library.CreateLib("TEST", "DarkTheme")
+win.NewTab(test2)
 
 return Library
