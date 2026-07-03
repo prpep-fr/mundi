@@ -1,4 +1,8 @@
-local Utility = require(script.Parent.Parent.Core.Utility)
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+))()
+
+local Utility = GithubRequire("Library/Core/Utility")
 
 local Section = {}
 Section.__index = Section
@@ -67,56 +71,56 @@ function Section.new(name, tab)
 end
 
 function Section:NewButton(name, tip, callback)
-    local Button = require(script.Parent.Button)
+    local Button = GithubRequire("Library/Components/Button")
     local element = Button.new(name or "Click Me!", tip or "Tip: Clicking this nothing will happen!", callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewToggle(name, tip, callback)
-    local Toggle = require(script.Parent.Toggle)
+    local Toggle = GithubRequire("Library/Components/Toggle")
     local element = Toggle.new(name or "Toggle", tip or "Prints Current Toggle State", callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewSlider(name, tip, maxValue, minValue, callback)
-    local Slider = require(script.Parent.Slider)
+    local Slider = GithubRequire("Library/Components/Slider")
     local element = Slider.new(name or "Slider", tip or "Slider tip here", maxValue or 500, minValue or 16, callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewDropdown(name, inf, list, callback)
-    local Dropdown = require(script.Parent.Dropdown)
+    local Dropdown = GithubRequire("Library/Components/Dropdown")
     local element = Dropdown.new(name or "Dropdown", inf or "Dropdown info", list or {}, callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewTextBox(name, tip, callback)
-    local Textbox = require(script.Parent.Textbox)
+    local Textbox = GithubRequire("Library/Components/Textbox")
     local element = Textbox.new(name or "Textbox", tip or "Gets a value of Textbox", callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewKeybind(name, tip, defaultKey, callback)
-    local Keybind = require(script.Parent.Keybind)
+    local Keybind = GithubRequire("Library/Components/Keybind")
     local element = Keybind.new(name or "KeybindText", tip or "KeybindInfo", defaultKey, callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewColorPicker(name, tip, defaultColor, callback)
-    local ColorPicker = require(script.Parent.ColorPicker)
+    local ColorPicker = GithubRequire("Library/Components/ColorPicker")
     local element = ColorPicker.new(name or "ColorPicker", tip or "ColorPicker info", defaultColor or Color3.fromRGB(255, 255, 255), callback or function() end, self)
     table.insert(self.elements, element)
     return element
 end
 
 function Section:NewLabel(text)
-    local Label = require(script.Parent.Label)
+    local Label = GithubRequire("Library/Components/Label")
     local element = Label.new(text or "Label", self)
     table.insert(self.elements, element)
     return element
