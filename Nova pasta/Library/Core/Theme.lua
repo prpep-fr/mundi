@@ -1,4 +1,8 @@
-local Signal = require(script.Parent.Signal)
+local GithubRequire = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/Nova%20pasta/GithubRequire.lua"
+))()
+
+local Signal = GithubRequire("Library/Core/Signal")
 
 local Theme = {}
 Theme.__index = Theme
