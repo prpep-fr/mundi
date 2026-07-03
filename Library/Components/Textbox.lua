@@ -2,7 +2,7 @@ local GithubRequire = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/prpep-fr/mundi/main/GithubRequire.lua"
 ))()
 
-local Utility = GithubRequire("Library/Core/Utility")
+local Utility = GithubRequire("/Library/Core/Utility")
 
 local Textbox = {}
 Textbox.__index = Textbox
