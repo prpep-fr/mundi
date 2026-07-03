@@ -13,5 +13,7 @@ end
 
 local win = Library.CreateLib("TEST", "DarkTheme")
 local tab1 = win:NewTab("Principal")
+local tab2 = win:NewTab("Config")
+local section = tab1:NewSection("Alguma coisa")
 
 return Library
