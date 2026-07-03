@@ -11,6 +11,6 @@ function Library.CreateLib(title, theme)
     return Window.new(title, theme)
 end
 
-Library.CreateLib(TEST, DarkTheme)
+local win = Library.CreateLib("TEST", "DarkTheme")
 
 return Library
