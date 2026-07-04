@@ -13,7 +13,10 @@ end
 
 local win = Library.CreateLib("TEST", "DarkTheme")
 local tab1 = win:NewTab("Principal")
-local tab2 = win:NewTab("Config")
-local section = tab1:NewSection("Alguma coisa")
+local section = tab1:NewSection("Ações")
+
+local btn = section:NewButton("Meu Botão", "Isso faz alguma coisa", function()
+    print("cliquei!")
+end)
 
 return Library
