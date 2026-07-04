@@ -2,7 +2,7 @@ local GithubRequire = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/prpep-fr/mundi/main/GithubRequire.lua"
 ))()
 
-local Window = GithubRequire("/Library/Components/Window")
+local Window = GithubRequire("Library/Components/Window")
 
 local Library = {}
 Library.__index = Library
@@ -11,6 +11,12 @@ function Library.CreateLib(title, theme)
     return Window.new(title, theme)
 end
 
-Library.CreateLib(TEST, DarkTheme)
+local win = Library.CreateLib("TEST", "DarkTheme")
+local tab1 = win:NewTab("Principal")
+local section = tab1:NewSection("Ações")
+
+local btn = section:NewButton("Meu Botão", "Isso faz alguma coisa", function()
+    print("cliquei!")
+end)
 
 return Library
