@@ -27,7 +27,9 @@ Description
 Loadstring:
 
 ```
-Loadstring
+loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/prpep-fr/mundi/main/init.lua"
+))()
 ```
 
 </p>
